@@ -2,6 +2,9 @@ document = "/spotify.html";
 
 document.getElementById("select").style.visibility = "hidden";
 
+var loginButton = document.getElementById('button-login');
+
+
 function prompt_login() {
 
 	var CLIENT_ID = "15f1fcf14a2c4f379f06540e654a9c0e";
