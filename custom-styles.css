@@ -9,8 +9,13 @@
 }
 
 .custom-body {
-	background-color: hsla(249, 100%, 8%, 0.5);
+	background-color: hsla(250, 100%, 8%, 0.5);
 }
+
+.custom-body {
+	background-color: hsla(250, 100%, 8%, 0.6);
+}
+
 
 .custom-body h1,
 .custom-body p {
