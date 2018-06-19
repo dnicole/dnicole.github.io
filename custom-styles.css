@@ -14,8 +14,8 @@
 
 .custom-body h1,
 .custom-body p {
-	border-radius: 2px;
-	padding: 0 3px;
+	border-radius: 3px;
+	padding: 0 10px;
 	color: #a8d7ff;
 	background-color: hsla(250, 100%, 8%, 0.6);
 }
