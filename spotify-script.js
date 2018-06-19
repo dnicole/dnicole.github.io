@@ -1,4 +1,4 @@
-document = "/index.html";
+document = "/spotify.html";
 
 document.getElementById("select").style.visibility = "hidden";
 
