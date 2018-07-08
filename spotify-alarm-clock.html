@@ -1,11 +1,8 @@
 <html>
 	<head>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-yellow.min.css">
 		<link rel="stylesheet" href="custom-styles.css">
-		<script src="spotify-script.js"></script>
 		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 		<!-- Uses a transparent header that draws on top of the layout's background -->
 	</head>
@@ -21,7 +18,7 @@
 					<!-- Navigation -->
 					<nav class="mdl-navigation">
 						<a class="mdl-navigation__link" href="/spotify.html">Fun With Our Spotify Data</a>
-						<a class="mdl-navigation__link" href="/spotify-alarm-clock">Use Spotify As An Alarm Clock</a>
+						<a class="mdl-navigation__link" href="/spotify-alarm-clock.html">Use Spotify As An Alarm Clock</a>
 						<a class="mdl-navigation__link" href="">Link</a>
 						<a class="mdl-navigation__link" href="">Link</a>
 					</nav>
@@ -42,7 +39,7 @@
 				<div class="mdl-grid custom-body">
 
 					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
-						<h1>Displaying User Data</h1>
+						<h1>Use Spotify As Your Alarm Clock</h1>
 					</div>
 
 					<div class="mdl-cell mdl-cell--2-col mdl-cell--5-offset-desktop  mdl-cell--3-offset-tablet mdl-cell--12-col-phone">
@@ -52,37 +49,41 @@
 					<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
 
 						<p>
-						  Log in with your Spotify account and this demo will display information about you fetched using the Spotify Web API.
+							Here's a little script to use Spotify as an alarm clock. It will turn up your system volume to 100%, open Spotify to the playlist you specify, and shuffle to start playing a random track.
+						</p>
+						<p>
+							If you can get this to run using the Windows Task Scheduler on Windows 10, please let me know. That said, I've set it to successfully run using <a href="https://www.splinterware.com/products/scheduler.html">System Scheduler</a>.
 						</p>
 
-						<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet" id="result"></div>
+						<textarea>
+							Set WshShell = WScript.CreateObject("WScript.Shell")
+								WshShell.run"%SystemRoot%\System32\SndVol.exe"
+								WScript.Sleep 1500
+								WshShell.SendKeys("{PGUP}")
+								WshShell.SendKeys("{PGUP}")
+								WshShell.SendKeys("{PGUP}")
+								WshShell.SendKeys("{PGUP}")
+								WshShell.SendKeys("{PGUP}")
+								WshShell.SendKeys"%{F4}"
+
+							Set WshShell = WScript.CreateObject("WScript.Shell")
+								Comandline = "PATH\TO\spotify.exe"
+								WScript.sleep 15000 ' Give Spotify time to start fully
+								CreateObject("WScript.Shell").Run("spotify:user:USERNAME:playlist:PLAYLIST")
+								WScript.sleep 10000
+								WshShell.SendKeys "{ENTER}"
+								WScript.sleep 1000
+								WshShell.SendKeys "^+{Up}"
+								WScript.sleep 1000
+								WshShell.SendKeys "^{RIGHT}"
+								WScript.sleep 10000
+								WshShell.SendKeys "^{s}"
+						</textarea>
+
+						<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet"></div>
 					</div>
 				</div>
 			</main>
 		</section>
 	</body>
-
-	<script id="result-template" type="text/x-handlebars-template">
-		<dl>
-			<img src="{{images.0.url}}">
-			<dt>User Name</dt>
-			<dd>{{id}}</dd>
-			<dt>Display Name</dt>
-			<dd>{{display_name}}</dd>
-			<dt>Country</dt>
-			<dd>{{country}}</dd>
-			<dt>Followers</dt>
-			<dd>{{followers.total}}</dd>
-			<dt>Profile</dt>
-			<dd><a href="{{external_urls.spotify}}" target="_blank">{{external_urls.spotify}}</a></dd>
-			<dt>Email</dt>
-			<dd>{{email}}</dd>
-			<dt>Product</dt>
-			<dd>{{product}}</dd>
-		</dl>
-	</script>
-
 </html>
-
-
-
