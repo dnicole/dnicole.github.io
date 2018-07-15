@@ -45,7 +45,7 @@
 					<div class="mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet">
 
 						<p>
-							Here's a little script to use Spotify as an alarm clock. It will turn up your system volume to 100%, open Spotify to the playlist you specify, and shuffle to start playing a random track.
+							Here's a little script to use Spotify as an alarm clock. It will turn up your system volume to 100%, open Spotify to the playlist you specify, and shuffle to start playing a random track. Copy/paste this script into a .vbs file, or <a href="spotify-alarm.vbs" download="spotify-alarm.vbs">download it here</a>, and change the path, your Spotify username and the playlist id.
 						</p>
 						<p>
 							If you can get this to run using the Windows Task Scheduler on Windows 10, please let me know. That said, I've set it to successfully run using <a href="https://www.splinterware.com/products/scheduler.html">System Scheduler</a>.
@@ -65,11 +65,11 @@
 						WshShell.SendKeys("{PGUP}")
 						WshShell.SendKeys("{PGUP}")
 						WshShell.SendKeys"%{F4}"
+						WScript.Sleep 5000
 
-						Set WshShell = WScript.CreateObject("WScript.Shell")
-						Comandline = "PATH\TO\spotify.exe"
+						Comandline = "<PATH\TO>\spotify.exe"
 						WScript.sleep 15000 ' Give Spotify time to start fully
-						CreateObject("WScript.Shell").Run("spotify:user:USERNAME:playlist:PLAYLIST")
+						CreateObject("WScript.Shell").Run("spotify:user:<USERNAME>:playlist:<PLAYLIST>")
 						WScript.sleep 10000
 						WshShell.SendKeys "{ENTER}"
 						WScript.sleep 1000
