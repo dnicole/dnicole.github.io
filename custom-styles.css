@@ -23,5 +23,5 @@
 textarea {
 	width: 60%;
 	height: 500px;
-	align-content: left;
+	align-content: flex-start !important;
 }
